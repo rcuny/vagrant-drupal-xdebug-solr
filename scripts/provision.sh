@@ -92,11 +92,6 @@ sudo sed -i "s@UPLOAD_MAX_FILESIZE@$UPLOAD_MAX_FILESIZE@g" /etc/php5/cli/php.ini
 sudo sed -i "s@POST_MAX_SIZE@$POST_MAX_SIZE@g" /etc/php5/cli/php.ini
 sudo service apache2 restart # restart apache so latest php config is picked up
 
-# # Make MySQL server listen to all connection
-# echo "[vagrant provisioning] Configuring MySQL..."
-# sudo sed -i "s@bind-address            = 127.0.0.1@bind-address            = 0.0.0.0@g" /etc/mysql/my.cnf
-# sudo /etc/init.d/mysql restart
-
 # Hostname
 echo "[vagrant provisioning] Setting hostname..."
 sudo hostname $HOSTNAME
