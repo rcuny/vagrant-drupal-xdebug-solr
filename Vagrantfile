@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
     vagrant.vm.box = "precise64-apache2-xdebug-solr"
     # The following box is stored on a server of mine, feel free to use it directly.
     # If you want to rebuild it, check the source repo: https://github.com/rcuny/vagrant-apache2-xdebug-solr
-    vagrant.vm.box_url = "http://rcuny.li/1idqKoy"
+    vagrant.vm.box_url = "http://rcuny.li/1dzKD4H"
     vagrant.vm.network :private_network, ip: "192.168.66.6"
     vagrant.vm.hostname = "vagrant.dcl"
   end

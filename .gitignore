@@ -7,3 +7,6 @@ logs/*
 
 # OSX
 .DS_Store
+
+# Ignore Vagrant build boxes
+*.box

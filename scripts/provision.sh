@@ -83,14 +83,19 @@ sudo rm -rf /home/vagrant/$DRUSH_VERSION.tar.gz # remove the downloaded tarbal
 # Changing PHP settings
 echo "[vagrant provisioning] Configuring PHP5..."
 # Change settings for apache2 PHP
-sudo sed -i "s@MEMORY_LIMIT@$MEMORY_LIMIT@g" /etc/php5/apache2/php.ini
-sudo sed -i "s@UPLOAD_MAX_FILESIZE@$UPLOAD_MAX_FILESIZE@g" /etc/php5/apache2/php.ini
-sudo sed -i "s@POST_MAX_SIZE@$POST_MAX_SIZE@g" /etc/php5/apache2/php.ini
+sudo sed -i "s@memory_limit.*=.*@memory_limit=$MEMORY_LIMIT@g" /etc/php5/apache2/php.ini
+sudo sed -i "s@upload_max_filesize.*=.*@upload_max_filesize=$UPLOAD_MAX_FILESIZE@g" /etc/php5/apache2/php.ini
+sudo sed -i "s@post_max_size.*=.*@post_max_size=$POST_MAX_SIZE@g" /etc/php5/apache2/php.ini
 # Change settings for command line interface PHP (used by Drush)
-sudo sed -i "s@MEMORY_LIMIT@$MEMORY_LIMIT@g" /etc/php5/cli/php.ini
-sudo sed -i "s@UPLOAD_MAX_FILESIZE@$UPLOAD_MAX_FILESIZE@g" /etc/php5/cli/php.ini
-sudo sed -i "s@POST_MAX_SIZE@$POST_MAX_SIZE@g" /etc/php5/cli/php.ini
+sudo sed -i "s@memory_limit.*=.*@memory_limit=$MEMORY_LIMIT@g" /etc/php5/cli/php.ini
+sudo sed -i "s@upload_max_filesize.*=.*@upload_max_filesize=$UPLOAD_MAX_FILESIZE@g" /etc/php5/cli/php.ini
+sudo sed -i "s@post_max_size.*=.*@post_max_size=$POST_MAX_SIZE@g" /etc/php5/cli/php.ini
 sudo service apache2 restart # restart apache so latest php config is picked up
+
+# Configuring Solr for Drupal
+echo "[vagrant provisioning] Configuring Solr for Drupal..."
+sudo cp /vagrant/scripts/resources/search_api_solr/solr-conf/4.x/* /opt/solr/collection1/conf/
+sudo /etc/init.d/tomcat7 restart
 
 # Hostname
 echo "[vagrant provisioning] Setting hostname..."
