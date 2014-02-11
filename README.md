@@ -6,6 +6,7 @@ This repository is part of a 2 repositories Vagrant project:
 * *[A first repo](https://github.com/rcuny/vagrant-apache2-xdebug-solr), aim at provisionning your box once.*
 * **[This repo](https://github.com/rcuny/vagrant-drupal-xdebug-solr), using the first one to build a Drupal customized box.**
 
+More info on this project is available on my blog: [Vagrant for Drupal dev with Solr and Xdebug](http://rcuny.li/1cs5VS7).
 
 ## What is in this box
 This repo contains Vagrant provisionning script to use with your new or existing Drupal projects. It is based on a box provisionned by [this Vagrant project](https://github.com/rcuny/vagrant-apache2-xdebug-solr), available here:
