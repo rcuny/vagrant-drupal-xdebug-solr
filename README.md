@@ -62,7 +62,7 @@ tar xzf drupal-7.26.tar.gz
 mv drupal-7.26 drupal-vagrant-test.local
 cd drupal-vagrant-test.local
 cp /tmp/vagrant-drupal-xdebug-solr/Vagrantfile ./
-cp -fr /tmp/vagrant-drupal-xdebug-solr/scripts/* ./scripts/
+cp -fr /tmp/vagrant-drupal-xdebug-solr/scripts ./scripts
 echo ".vagrant" >> .gitignore
 vagrant up
 ```
